@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap"
+			rel="stylesheet"
+		/>
+		<title>SUS</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+		/>
+
+		<style>
+			*,
+			*::after,
+			*::before {
+				box-sizing: border-box;
+				font-family: inherit;
+			}
+			body {
+				margin: 0 auto;
+				padding: 0;
+				text-align: center;
+				min-height: 100vh;
+				min-width: 100vw;
+				font-family: "Josefin Sans", sans-serif;
+			}
+			.container {
+				max-width: 800px;
+				width: auto;
+				padding: 0 1em;
+				margin: auto;
+			}
+
+			.flex {
+				display: flex;
+				align-items: center;
+				justify-items: center;
+			}
+
+			.result-wrapper {
+				overflow: hidden;
+				line-break: auto;
+			}
+			.result {
+				line-break: anywhere;
+			}
+
+			.hidden {
+				display: none;
+			}
+			.invisible {
+				visibility: hidden;
+			}
+
+			#app {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.footer {
+				padding: 0.5em 0;
+				font-size: 1.2em;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div class="container flex-1">
+				<div id="main-page" class="hidden">
+					<h1 style="opacity: 100">SUS Link Lengthener</h1>
+
+					<div style="padding: 1em 0">
+						<span class="invisible">➖➖</span>🟥🟥🟥<br />
+						<span class="invisible">➖</span>🟥🟥🟥🟥🟥<br />
+						🟥🟥🟥🟦🟦🟦<br />
+						🟥🟥🟥🟦🟦🟦<br />
+						🟥🟥🟥🟥🟥🟥<br />
+						🟥🟥🟥🟥🟥🟥<br />
+						<span class="invisible">➖</span>🟥🟥🟥🟥🟥<br />
+						<span class="invisible">➖</span>🟥🟥<span class="invisible"
+							>➖</span
+						>🟥🟥<br />
+						<span class="invisible">➖</span>🟥🟥<span class="invisible"
+							>➖</span
+						>🟥🟥<br />
+					</div>
+					<form id="formCode" class="flex">
+						<input
+							id="codeLinkInput"
+							class="flex-1"
+							type="text"
+							place="paste the link here"
+						/>
+						<button type="submit">generate</button>
+					</form>
+
+					<div class="result-wrapper">
+						<p class="result">
+							<textarea id="codeResult"></textarea>
+						</p>
+						<button id="copyText">click to copy</button>
+					</div>
+
+					<div class="result-wrapper">
+						<p id="decodeResult" class="result"></p>
+					</div>
+				</div>
+
+				<div id="redirect-area" class="hidden">
+					<div style="padding: 2em">
+						░██████╗██╗░░░██╗░██████╗<br />
+						██╔════╝██║░░░██║██╔════╝<br />
+						╚█████╗░██║░░░██║╚█████╗░<br />
+						░╚═══██╗██║░░░██║░╚═══██╗<br />
+						██████╔╝╚██████╔╝██████╔╝<br />
+						╚═════╝░░╚═════╝░╚═════╝░<br />
+					</div>
+
+					<p>
+						Are you sure you want to visit
+						<a id="redirectURL" href="#">{{URL}}</a> ?
+					</p>
+					<div style="font-size: 1.6em; font-weight: bold">
+						<a href="#" id="redirectBtn">YES!</a>
+					</div>
+					<p>Automatically redirecting in 6 seconds...</p>
+				</div>
+			</div>
+			<div class="footer">
+				Made by <a href="#">lmssieh.</a>
+				<a href="#">Source code</a>
+			</div>
+		</div>
+		<script src="app.js"></script>
+	</body>
+</html>
