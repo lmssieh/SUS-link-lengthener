@@ -1,6 +1,7 @@
 # ඞ
 
-a tiny link lengthener without a backend.
+a tiny link lengthener without a backend.  
+try it at [https://lmssieh.github.io/SUS-link-lengthener/](https://lmssieh.github.io/SUS-link-lengthener/)
 
 
 
