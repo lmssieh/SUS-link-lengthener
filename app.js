@@ -26,7 +26,7 @@ codeFormEle.addEventListener("submit", handleCode);
 function handleCode(e) {
 	e.preventDefault();
 	const link = codeInputEle.value;
-	codeResult.value = URL + "/#go/" + code(link);
+	codeResult.value = URL + "#go/" + code(link);
 }
 
 if (URL.includes("#go")) {
