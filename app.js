@@ -33,14 +33,22 @@ if (URL.includes("#go")) {
 	const SUS_URL = decodeURIComponent(URL.split("go/")[1]);
 	const finalLink = decode(SUS_URL);
 
-	document.querySelector("#redirectURL").href = finalLink;
-	document.querySelector("#redirectURL").textContent = finalLink;
+	const redirectUrlEle = document.querySelector("#redirectURL");
+	redirectUrlEle.href = finalLink;
+	redirectUrlEle.textContent = finalLink;
 
 	document.querySelector("#redirectBtn").href = finalLink;
 
 	document.querySelector("#redirect-area").classList.remove("hidden");
 
-	setTimeout(() => (window.location.href = finalLink), 7000);
+	const redirectWaitTime = 6;
+	const countdownTimerEle = document.querySelector("#countdownTimer");
+	countdownTimerEle.textContent = redirectWaitTime;
+	setInterval(() => {
+		if (countdownTimerEle.textContent <= 0) return;
+		countdownTimerEle.textContent = Number(countdownTimerEle.textContent) - 1;
+	}, 1000);
+	setTimeout(() => (window.location.href = finalLink), redirectWaitTime * 1000);
 } else {
 	document.querySelector("#main-page").classList.remove("hidden");
 }
@@ -83,7 +91,8 @@ const copyToClipboard = (str) => {
 	return Promise.reject("The Clipboard API is not available.");
 };
 
-document.querySelector("#copyText").addEventListener("click", () => {
+const copyTextBtn = document.querySelector("#copyText");
+copyTextBtn.addEventListener("click", () => {
 	copyToClipboard(codeResult.value);
-	document.querySelector("#copyText").textContent = "copied";
+	copyTextBtn.textContent = "copied";
 });
