@@ -25,7 +25,10 @@ codeFormEle.addEventListener("submit", handleCode);
 
 function handleCode(e) {
 	e.preventDefault();
-	const link = codeInputEle.value;
+	let link = codeInputEle.value;
+	if (!link.startsWith("https://") && !link.startsWith("http://")) {
+		link = "https://" + link;
+	}
 	codeResult.value = URL + "#go/" + code(link);
 }
 
