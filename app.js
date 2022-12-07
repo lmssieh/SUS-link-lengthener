@@ -94,8 +94,15 @@ const copyToClipboard = (str) => {
 	return Promise.reject("The Clipboard API is not available.");
 };
 
+let timeout;
 const copyTextBtn = document.querySelector("#copyText");
 copyTextBtn.addEventListener("click", () => {
 	copyToClipboard(codeResult.value);
 	copyTextBtn.textContent = "copied";
+  
+  if(timeout) clearTimeout(timeout);
+
+  timeout = setTimeout(() => {
+    copyTextBtn.textContent = "click to copy";
+  }, 1000)
 });
